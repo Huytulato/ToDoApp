@@ -13,27 +13,10 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 // middleware
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  "http://localhost:3000",
-  "https://to-do-app-orcin-theta.vercel.app"
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      
-      if (allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: process.env.CLIENT_URL,
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
   })
 );
 app.use(express.json());
@@ -65,7 +48,7 @@ const server = async () => {
       console.log(`Server is running on port ${port}`);
     });
   } catch (error) {
-    console.log("Failed to start server.....", error.message);
+    console.log("Failed to strt server.....", error.message);
     process.exit(1);
   }
 };
