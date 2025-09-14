@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const TasksContext = createContext();
 
-const serverUrl = "https://todoapp-jyh8.onrender.com/api/v1";
+const serverUrl = "https://todoapp-jyh8.onrender.com";
 
 export const TasksProvider = ({ children }) => {
   const { user } = useUserContext();
