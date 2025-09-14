@@ -47,8 +47,8 @@ export const registerUser = asyncHandler(async (req, res) => {
     path: "/",
     httpOnly: true,
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    sameSite: "lax", // cross-site access --> allow all third-party cookies
-    secure: false,
+    sameSite: "none", // Allow cross-site cookies for production
+    secure: true, // Required for HTTPS
   });
 
   if (user) {
@@ -107,8 +107,8 @@ export const loginUser = asyncHandler(async (req, res) => {
       path: "/",
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      sameSite: "lax", // cross-site access --> allow all third-party cookies
-      secure: false,
+      sameSite: "none", // Allow cross-site cookies for production
+      secure: true, // Required for HTTPS
     });
 
     // send back the user and token in the response to the client

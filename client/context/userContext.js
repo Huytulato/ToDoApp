@@ -7,6 +7,10 @@ const UserContext = React.createContext();
 
 // set axios to include credentials with every request
 axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
+
+// Configure axios for cross-site cookies
+axios.defaults.headers.common['Access-Control-Allow-Credentials'] = 'true';
 
 export const UserContextProvider = ({ children }) => {
 
