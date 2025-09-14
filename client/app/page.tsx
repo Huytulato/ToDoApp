@@ -1,8 +1,8 @@
 "use client";
 import { useTasks } from "@/context/taskContext";
 import useRedirect from "@/hooks/useUserRedirect";
-import Filters from "./Components/Filters/Filters";
-import TaskItem from "./Components/TaskItem/TaskItem";
+import Filters from "@/app/Components/Filters/Filters";
+import TaskItem from "@/app/Components/TaskItem/TaskItem";
 import { Task } from "@/utils/types";
 import { filteredTasks } from "@/utils/utilities";
 import { useEffect } from "react";
