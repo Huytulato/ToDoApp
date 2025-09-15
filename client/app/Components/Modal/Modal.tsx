@@ -47,14 +47,14 @@ function Modal() {
     <div className="fixed left-0 top-0 z-50 h-full w-full bg-[#333]/30 overflow-hidden">
       <form
         action=""
-        className="py-5 px-6 max-w-[520px] w-full flex flex-col gap-3 bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-md"
+        className="py-4 px-4 lg:py-5 lg:px-6 max-w-[520px] w-full mx-4 flex flex-col gap-3 bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-md"
         onSubmit={handleSubmit}
         ref={ref}
       >
         <div className="flex flex-col gap-1">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title" className="text-sm lg:text-base">Title</label>
           <input
-            className="bg-[#F9F9F9] p-2 rounded-md border"
+            className="bg-[#F9F9F9] p-2 rounded-md border text-sm lg:text-base"
             type="text"
             id="title"
             placeholder="Task Title"
@@ -64,20 +64,20 @@ function Modal() {
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description" className="text-sm lg:text-base">Description</label>
           <textarea
-            className="bg-[#F9F9F9] p-2 rounded-md border resize-none"
+            className="bg-[#F9F9F9] p-2 rounded-md border resize-none text-sm lg:text-base"
             name="description"
             placeholder="Task Description"
-            rows={4}
+            rows={3}
             value={task.description}
             onChange={(e) => handleInput("description")(e)}
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor="priority">Select Priority</label>
+          <label htmlFor="priority" className="text-sm lg:text-base">Select Priority</label>
           <select
-            className="bg-[#F9F9F9] p-2 rounded-md border cursor-pointer"
+            className="bg-[#F9F9F9] p-2 rounded-md border cursor-pointer text-sm lg:text-base"
             name="priority"
             value={task.priority}
             onChange={(e) => handleInput("priority")(e)}
@@ -88,9 +88,9 @@ function Modal() {
           </select>
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor="dueDate">Due Date</label>
+          <label htmlFor="dueDate" className="text-sm lg:text-base">Due Date</label>
           <input
-            className="bg-[#F9F9F9] p-2 rounded-md border"
+            className="bg-[#F9F9F9] p-2 rounded-md border text-sm lg:text-base"
             type="date"
             name="dueDate"
             value={task.dueDate}
@@ -98,12 +98,12 @@ function Modal() {
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor="completed">Task Completed</label>
+          <label htmlFor="completed" className="text-sm lg:text-base">Task Completed</label>
           <div className="flex items-center justify-between bg-[#F9F9F9] p-2 rounded-md border">
-            <label htmlFor="completed">Completed</label>
+            <label htmlFor="completed" className="text-sm lg:text-base">Completed</label>
             <div>
               <select
-                className="bg-[#F9F9F9] p-2 rounded-md border cursor-pointer"
+                className="bg-[#F9F9F9] p-2 rounded-md border cursor-pointer text-sm lg:text-base"
                 name="completed"
                 value={task.completed ? "true" : "false"}
                 onChange={(e) => handleInput("completed")(e)}
@@ -115,10 +115,10 @@ function Modal() {
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-6 lg:mt-8">
           <button
             type="submit"
-            className={`text-white py-2 rounded-md w-full hover:bg-blue-500 transition duration-200 ease-in-out ${
+            className={`text-white py-2 rounded-md w-full hover:bg-blue-500 transition duration-200 ease-in-out text-sm lg:text-base ${
               modalMode === "edit" ? "bg-blue-400" : "bg-green-400"
             }`}
           >

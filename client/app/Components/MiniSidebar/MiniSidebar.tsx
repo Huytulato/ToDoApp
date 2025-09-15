@@ -39,27 +39,27 @@ function MiniSidebar() {
     },
   ];
   return (
-    <div className="basis-[5rem] flex flex-col bg-[#f9f9f9]">
-      <div className="flex items-center justify-center h-[5rem]">
+    <div className="w-full lg:w-[5rem] flex flex-row lg:flex-col bg-[#f9f9f9] lg:fixed lg:left-0 lg:top-0 lg:h-full z-10">
+      <div className="flex items-center justify-center h-[5rem] w-[5rem] lg:w-full">
         <Image src="/todoapp.png" width={28} height={28} alt="logo" />
       </div>
 
-      <div className="mt-8 flex-1 flex flex-col items-center justify-between">
-        <ul className="flex flex-col gap-10">
+      <div className="mt-0 lg:mt-8 flex-1 flex flex-row lg:flex-col items-center justify-between lg:justify-between px-4 lg:px-0">
+        <ul className="flex flex-row lg:flex-col gap-4 lg:gap-10">
           {navItems.map((item, index) => (
             <li key={index} className="relative group">
               <Link href={item.link}>{item.icon}</Link>
 
-              {/* Hover Tooltip */}
-              <span className="u-triangle absolute top-[50%] translate-y-[-50%] left-8 text-xs pointer-events-none text-white bg-[#3aafae] px-2 py-1 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Hover Tooltip - only show on desktop */}
+              <span className="hidden lg:block u-triangle absolute top-[50%] translate-y-[-50%] left-8 text-xs pointer-events-none text-white bg-[#3aafae] px-2 py-1 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {item.title}
               </span>
             </li>
           ))}
         </ul>
 
-        <div className="mb-[1.5rem]">
-          <button className="w-12 h-12 flex justify-center items-center border-2 border-[#EB4E31]  p-2 rounded-full">
+        <div className="mb-0 lg:mb-[1.5rem]">
+          <button className="w-10 h-10 lg:w-12 lg:h-12 flex justify-center items-center border-2 border-[#EB4E31] p-2 rounded-full">
             <IconDeleteAll strokeColor="#EB4E31" />
           </button>
         </div>

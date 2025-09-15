@@ -44,14 +44,14 @@ function RadialChart() {
 
   return (
     <Card className="flex flex-col border-2 border-white shadow-none bg-[#EDEDED]">
-      <CardHeader className="items-center pb-0">
-        <CardTitle>Comleted vs Pending Tasks</CardTitle>
-        <CardDescription>Task completion status.</CardDescription>
+      <CardHeader className="items-center pb-0 px-4 lg:px-6">
+        <CardTitle className="text-sm lg:text-base">Completed vs Pending Tasks</CardTitle>
+        <CardDescription className="text-xs lg:text-sm">Task completion status.</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-1 items-center pb-0">
+      <CardContent className="flex flex-1 items-center pb-0 px-4 lg:px-6">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square w-full max-w-[250px]"
+          className="mx-auto aspect-square w-full max-w-[200px] lg:max-w-[250px]"
         >
           <RadialBarChart
             data={chartData}
@@ -106,10 +106,10 @@ function RadialChart() {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
+      <CardFooter className="flex-col gap-2 text-xs lg:text-sm px-4 lg:px-6">
         <div className="flex items-center gap-2 font-medium leading-none">
           Task completion improved by 12% this month{" "}
-          <TrendingUp className="h-4 w-4" />
+          <TrendingUp className="h-3 w-3 lg:h-4 lg:w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
           Analysis based on tasks completed in the last 30 days.

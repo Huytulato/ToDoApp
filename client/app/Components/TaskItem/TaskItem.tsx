@@ -28,20 +28,22 @@ function TaskItem({ task }: TaskItemProps) {
 
   return (
     <motion.div
-      className="h-[16rem] px-4 py-3 flex flex-col gap-4 shadow-sm bg-[#f9f9f9] rounded-lg border-2 border-white"
+      className="h-auto min-h-[12rem] lg:h-[16rem] px-3 lg:px-4 py-3 flex flex-col gap-3 lg:gap-4 shadow-sm bg-[#f9f9f9] rounded-lg border-2 border-white"
       variants={item}
     >
-      <div>
-        <h4 className="font-bold text-2xl">{task.title}</h4>
-        <p>{task.description}</p>
+      <div className="flex-1">
+        <h4 className="font-bold text-lg lg:text-2xl line-clamp-2">{task.title}</h4>
+        <p className="text-sm lg:text-base text-gray-600 line-clamp-3 mt-1">{task.description}</p>
       </div>
-      <div className="mt-auto flex justify-between items-center">
-        <p className="text-sm text-gray-400">{formatTime(task.createdAt)}</p>
-        <p className={`text-sm font-bold ${getPriorityColor(task.priority)}`}>
-          {task.priority}
-        </p>
-        <div>
-          <div className="flex items-center gap-3 text-gray-400 text-[1.2rem]">
+      <div className="mt-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 lg:gap-0">
+        <div className="flex justify-between items-center w-full lg:w-auto">
+          <p className="text-xs lg:text-sm text-gray-400">{formatTime(task.createdAt)}</p>
+          <p className={`text-xs lg:text-sm font-bold ${getPriorityColor(task.priority)}`}>
+            {task.priority}
+          </p>
+        </div>
+        <div className="w-full lg:w-auto">
+          <div className="flex items-center justify-center lg:justify-end gap-3 text-gray-400 text-lg lg:text-[1.2rem]">
             <button
               className={`${
                 task.completed ? "text-yellow-400" : "text-gray-400"
