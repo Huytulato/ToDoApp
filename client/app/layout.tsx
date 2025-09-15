@@ -45,7 +45,7 @@ export default function RootLayout({
         <UserProvider>
           <TasksProvider>
             <Toaster position="top-center" />
-            <div className="h-full flex flex-col lg:flex-row overflow-hidden">
+            <div className="h-full flex flex-col lg:flex-row overflow-hidden lg:pl-[5rem]">
               <MiniSidebar />
               <div className="flex-1 flex flex-col min-w-0">              
                   <Header />
