@@ -82,6 +82,10 @@ export const TasksProvider = ({ children }) => {
     try {
       const taskData = {
         ...task,
+        // normalize completed to boolean
+        completed: task.completed === true || task.completed === 'true',
+        // ensure dueDate is ISO string if provided
+        dueDate: task.dueDate ? new Date(task.dueDate).toISOString() : undefined,
         user: userId,
       };
       
@@ -103,7 +107,12 @@ export const TasksProvider = ({ children }) => {
   const updateTask = async (task) => {
     setLoading(true);
     try {
-      const res = await axios.patch(`${serverUrl}/api/v1/task/${task._id}`, task, {
+      const payload = {
+        ...task,
+        completed: task.completed === true || task.completed === 'true',
+        dueDate: task.dueDate ? new Date(task.dueDate).toISOString() : undefined,
+      };
+      const res = await axios.patch(`${serverUrl}/api/v1/task/${task._id}`, payload, {
         withCredentials: true,
       });
 

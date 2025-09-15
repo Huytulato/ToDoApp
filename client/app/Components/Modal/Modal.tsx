@@ -88,12 +88,12 @@ function Modal() {
           </select>
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor="dueDate" className="text-sm lg:text-base">Due Date</label>
+          <label htmlFor="dueDate" className="text-sm lg:text-base">Due Date & Time</label>
           <input
             className="bg-[#F9F9F9] p-2 rounded-md border text-sm lg:text-base"
-            type="date"
+            type="datetime-local"
             name="dueDate"
-            value={task.dueDate}
+            value={task.dueDate ? new Date(task.dueDate).toISOString().slice(0,16) : ''}
             onChange={(e) => handleInput("dueDate")(e)}
           />
         </div>

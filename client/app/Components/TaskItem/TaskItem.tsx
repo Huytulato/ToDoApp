@@ -36,8 +36,11 @@ function TaskItem({ task }: TaskItemProps) {
         <p className="text-sm lg:text-base text-gray-600 line-clamp-3 mt-1">{task.description}</p>
       </div>
       <div className="mt-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 lg:gap-0">
-        <div className="flex justify-between items-center w-full lg:w-auto">
+        <div className="flex justify-between items-center w-full lg:w-auto gap-3">
           <p className="text-xs lg:text-sm text-gray-400">{formatTime(task.createdAt)}</p>
+          {task.dueDate && (
+            <p className="text-xs lg:text-sm text-gray-500">Due: {new Date(task.dueDate).toLocaleString()}</p>
+          )}
           <p className={`text-xs lg:text-sm font-bold ${getPriorityColor(task.priority)}`}>
             {task.priority}
           </p>

@@ -83,8 +83,7 @@ export const updateTask = asyncHandler(async (req, res) => {
     const userId = req.user._id;
 
     const { id } = req.params;
-    const { title, description, dueDate, priority, status, completed } =
-      req.body;
+    const { title, description, dueDate, priority, status, completed } = req.body;
 
     if (!id) {
       res.status(400).json({ message: "Please provide a task id" });
@@ -102,12 +101,12 @@ export const updateTask = asyncHandler(async (req, res) => {
     }
 
     // update the task with the new data if provided or keep the old data
-    task.title = title || task.title;
-    task.description = description || task.description;
-    task.dueDate = dueDate || task.dueDate;
-    task.priority = priority || task.priority;
-    task.status = status || task.status;
-    task.completed = completed || task.completed;
+    if (typeof title !== 'undefined') task.title = title;
+    if (typeof description !== 'undefined') task.description = description;
+    if (typeof dueDate !== 'undefined' && dueDate) task.dueDate = dueDate;
+    if (typeof priority !== 'undefined') task.priority = priority;
+    if (typeof status !== 'undefined') task.status = status;
+    if (typeof completed !== 'undefined') task.completed = completed === true || completed === 'true';
 
     await task.save();
 
